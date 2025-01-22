@@ -1,0 +1,665 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background-color: #000000;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Matrix Canvas */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;  /* Changed to -2 to go behind cyborg */
+    background-color: #000;
+}
+
+/* Cyborg Overlay */
+#cyborg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar .logo img {
+    height: 50px;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin-left: 20px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #1da1f2;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #1da1f2;
+    transition: width .3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.navbar .nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: flex-end;
+    padding: 150px 0 60px 40px;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+}
+  .hero-content {
+      width: 50%;
+      margin-right: 20px;
+      margin-top: 120px; /* Adds space at the top */
+      text-align: right;
+      position: absolute;
+      right: 0;
+      opacity: 0;
+      animation: fadeInRight 1s ease-out forwards;
+      animation-delay: 1s;
+  }
+
+
+
+
+
+
+
+
+    .hero-content h1 br,
+    .hero-content h1 + p,
+    .cta-buttons {
+        opacity: 0;
+        animation: fadeInRight 1s ease-out forwards;
+        animation-delay: 7s;  /* Appears after FACEOFF finishes at 9s */
+    }
+
+
+
+    .hero-content h1 span + br + span {
+        opacity: 0;
+
+        display: inline-block;
+        animation: fadeInRight 1s ease-out forwards;
+        animation-delay: 6s;  /* Much longer delay */
+    }
+
+
+
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+.hero-content h1 {    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #1da1f2;
+    text-shadow: 0 0 10px #1da1f2;
+    text-align: right;
+    margin-right: 20px;
+    width: 100%;
+}
+  .brand-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5.5rem;
+      font-weight: 900;
+      color: #1da1f2;
+      text-shadow: 0 0 20px #1da1f2, 0 0 30px #1da1f2;
+      letter-spacing: 8px;
+      display: block;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    background: linear-gradient(180deg, #ffffff, #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      width: 100%;
+      text-align: right;
+
+      animation: slideDown 4.5s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+                 float 3s ease-in-out infinite;
+      animation-delay: 6s;
+      position: relative;
+      transform: translateY(-48000px);
+  }
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-48000px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes glow {
+      from {
+          text-shadow: 0 0 20px #1da1f2;
+      }
+      to {
+          text-shadow: 0 0 30px #1da1f2, 0 0 40px #1da1f2;
+      }
+  }
+
+  @keyframes slideDown {
+      from {
+          transform: translateY(-50px);
+      }
+      to {
+          transform: translateY(0);
+      }
+  }
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-align: right;
+    margin-right: 20px;
+    width: 100%;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    gap: 20px;
+}
+
+.cta-buttons .btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.cta-buttons .primary {
+    background-color: #1da1f2;
+    color: #fff;
+}
+
+.cta-buttons .primary:hover {
+    background-color: #0d95e8;
+    transform: scale(1.05);
+}
+
+.cta-buttons .secondary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.cta-buttons .secondary:hover {
+    background-color: #cfcfcf;
+    transform: scale(1.05);
+}
+      .hero-image {
+          position: absolute;
+          top: calc(100vh - 400px);  /* Places it near bottom of viewport */
+          left: 40px;
+          z-index: 1;
+          opacity: 0;
+          animation: fadeInLeft 1s ease-out forwards;
+          animation-delay: 6s;
+      }
+  @keyframes fadeInLeft {
+      from {
+          opacity: 0;
+          transform: translateX(-50px);
+      }
+      to {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+
+  .hero-image img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #1da1f2;
+      animation: float 6s ease-in-out infinite;
+  }
+/* Float Animation for Hero Image */
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+/* Section Titles */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #1da1f2;
+    text-shadow: 0 0 5px #1da1f2;
+}
+
+/* Features Section */
+.features, .features-details, .pricing, .contact {
+    padding: 60px 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.features-container, .steps-container, .pricing-container, .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature, .step, .pricing-plan, .contact-form {
+    flex: 1 1 250px;
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #1da1f2;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover, .step:hover, .pricing-plan:hover, .contact-form:hover {
+    transform: scale(1.25);
+    box-shadow: 0 4px 30px rgba(29, 161, 242, 0.5);
+}
+
+
+.feature img, .step img, .pricing-plan img, .contact-form img {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.feature h3, .step h3, .pricing-plan h3, .contact-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #1da1f2;
+}
+
+.feature p, .step p, .pricing-plan p, .contact-form p {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* How It Works Section */
+.how-it-works .step img {
+    height: 150px;
+    margin-top: 15px;
+}
+
+/* Pricing Section */
+.pricing .pricing-plan {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pricing .pricing-plan p {
+    color: #1da1f2;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.pricing .pricing-plan ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.pricing .pricing-plan ul li {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* Contact Section */
+.contact .contact-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #1da1f2;
+}
+
+.contact .contact-form input, 
+.contact .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #1da1f2;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.contact .contact-form input::placeholder, 
+.contact .contact-form textarea::placeholder {
+    color: #cccccc;
+}
+
+.contact .contact-form button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1da1f2;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact .contact-form button:hover {
+    background-color: #0d95e8;
+}
+
+/* Call to Action Section */
+.cta {
+    padding: 60px 40px;
+    background-color: rgba(29, 161, 242, 0.9);
+    text-align: center;
+    color: #fff;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #1da1f2;
+}
+
+.cta .btn.primary {
+    background-color: #ffffff;
+    color: #1da1f2;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta .btn.primary:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+h1, h2, h3, p, a, .section-title {
+    -webkit-text-stroke: 0.3px rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.brand-name {
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
+}
+
+.feature p, .step p {
+    -webkit-text-stroke: 0.2px rgba(255, 255, 255, 0.15);
+}
+
+.cta h2 {
+    -webkit-text-stroke: 0.4px rgba(255, 255, 255, 0.25);
+}
+
+.navbar .nav-links a {
+    -webkit-text-stroke: 0.2px rgba(255, 255, 255, 0.2);
+}
+
+/* Footer */
+footer {
+    padding: 40px 40px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 60px 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid #1da1f2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(29, 161, 242, 0.9);
+    color: white;
+    text-align: center;
+    transition: bottom 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 30px rgba(29, 161, 242, 0.5);
+}
+
+.gallery-item:hover .overlay {
+    bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    margin: 0 20px;
+}
+
+.footer-links a {
+    color: #1da1f2;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #1da1f2;
+    transition: width .3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.2);
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 150px 20px 60px 20px;
+    }
+
+    .hero-content, .hero-image {
+        text-align: center;
+    }
+
+    .features-container, .steps-container, .pricing-container, .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features-container::before {
+        background: none;
+    }
+    /* Social Media Icon Hover Effect */
+.social-media a img {
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth animation for hover */
+}
+
+.social-media a:hover img {
+    transform: scale(1.2); /* Enlarges the icon on hover */
+    filter: hue-rotate(180deg); /* Changes the icon's color on hover */
+}
+
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: -1;
+    pointer-events: none;
+    animation: fadeToBlack 2s forwards;
+    animation-delay: 6s;
+}
+
+@keyframes fadeToBlack {
+    from {
+        background: rgba(0, 0, 0, 0);
+    }
+    to {
+        background: rgba(0, 0, 0, 0.6);
+    }
+}

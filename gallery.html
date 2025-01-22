@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceOff Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+    <video id="cyborg-overlay" autoplay muted playsinline>  
+        <source src="images/Faceoff.mp4" type="video/mp4">
+    </video>
+    <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+    
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="logo">
+            <img src="images/faceswap-logo.gif" alt="FaceOff Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="https://t.me/YourBotUsername" target="_blank">Telegram</a></li>
+            <li><a href="#" target="_blank">Twitter</a></li>
+        </ul>
+    </nav>
+
+    <section class="gallery-section">
+        <h1>FaceOff Gallery</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/cyborg.png" alt="Cyborg FaceSwap">
+                <div class="overlay">Cyborg Transformation</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/hero-image.png" alt="Hero FaceSwap">
+                <div class="overlay">Heroic Transformation</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/face-blend-icon.png" alt="Face Blend">
+                <div class="overlay">Seamless Blending</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/faceswap-logo.gif" alt="FaceSwap Process">
+                <div class="overlay">AI Transformation</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/comfyui-logo.png" alt="ComfyUI Logo">
+            </div>
+            <p>&copy; 2024 ComfyUI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/gallery.js" defer></script>
+</body>
+</html>
